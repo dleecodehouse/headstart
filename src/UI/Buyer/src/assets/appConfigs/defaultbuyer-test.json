@@ -1,22 +1,22 @@
 {
   "hostedApp": true,
-  "appname": "Default Buyer Test",
-  "appID": "defaultbuyer-test",
-  "clientID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "appname": "Default Buyer Storefront",
+  "appID": "defaultbuyer-storefront",
+  "clientID": "AF199AE3-D70D-4E84-8CB7-11950AB270EC",
   "incrementorPrefix": "HS_TEST",
-  "baseUrl": "https://my-default-buyer-test.com",
-  "middlewareUrl": "https://my-hosted-middleware.com",
+  "baseUrl": "",
+  "middlewareUrl": "https://zipdemo2-middleware.sitecoredemo.com",
   "creditCardIframeUrl": "https://fts-uat.cardconnect.com/itoke/ajax-tokenizer.html",
-  "translateBlobUrl": "https://MYSTORAGEACCOUNTNAME.blob.core.windows.net/ngx-translate/i18n/",
+  "translateBlobUrl": "https://four51.blob.core.windows.net/ngx-translate/i18n/",
   "supportedLanguages": [
     "en",
     "fr",
     "jp"
   ],
   "defaultLanguage": "en",
-  "marketplaceID": "my-seller-id",
-  "marketplaceName": "Default Seller Test",
-  "sellerQuoteContactEmail": "quotes@seller.com",
+  "marketplaceID": "ea3bf3b9-abab-4aa0-9f7a-fd3628dac45a",
+  "marketplaceName": "Demo_Instance_2135_Marketplace",
+  "sellerQuoteContactEmail": "dle@codehousegroup.com",
   "orderCloudApiUrl": "https://sandboxapi.ordercloud.io",
   "useSitecoreSend": false,
   "sitecoreSendWebsiteID": "xxxxxxxxxxxxxxxxxxxxxxxx",
@@ -28,12 +28,11 @@
   "sitecoreCDPPointOfSale": "xxxxxxxxxxxxxxxxxxxxxxxx",
   "sitecoreCDPWebFlowTarget": "xxxxxxxxxxxxxxxxxxxxxxxx",
   "theme": {
-    "logoSrc": "assets/generic-logo.png"
+    "logoSrc": "assets/codehouse-logo.png"
   },
   "appInsightsInstrumentationKey": null,
   "anonymousShoppingEnabled": true,
   "acceptedPaymentMethods": [
-    "CreditCard",
-    "PurchaseOrder"
+    "CreditCard"
   ]
 }
