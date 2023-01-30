@@ -154,6 +154,18 @@ export default class Orders {
     }
 
     /**
+     * 
+     * @param options the list args, same as would be passed to ordercloud list
+     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+     * @returns 
+     */
+     public async ListUnSubmittedOrders( options: ListArgs<HSOrder> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<HSOrder>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/order/listunsubmittedorders`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
+    }
+
+    /**
      * @param orderID ID of the order.
      * @param lineItemID ID of the line item.
      * @param quotePrice Proposed price of the quoted line item.
