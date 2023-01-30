@@ -4,6 +4,7 @@ import { SharedModule } from '@app-seller/shared'
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar'
 import { PromotionsRoutingModule } from './promotions-routing.module'
 import { PromotionTableComponent } from './components/promotion-table/promotion-table.component'
+import { PromotionUsageTableComponent } from './components/promotion-usage-table/promotion-usage-table.component'
 import { PromotionEditComponent } from './components/promotion-edit/promotion-edit.component'
 import { BogoEditComponent } from './components/bogo-edit/bogo-edit.component'
 import {
@@ -21,6 +22,7 @@ import {
   ],
   declarations: [
     PromotionTableComponent,
+    PromotionUsageTableComponent,
     PromotionEditComponent,
     BogoEditComponent,
   ],

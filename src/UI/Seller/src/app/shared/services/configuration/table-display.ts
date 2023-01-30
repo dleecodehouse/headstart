@@ -220,6 +220,12 @@ export const FULL_TABLE_RESOURCE_DICTIONARY: ResourceConfigurationDictionary = {
         type: DATE_TIME,
         sortable: true,
       },
+      {
+        path: 'RedemptionCount',
+        header: 'ADMIN.PROMOTIONS.DISPLAY.USAGE.USES',
+        type: BASIC_STRING,
+        sortable: true
+      },
     ],
     imgPath: '',
   },
@@ -388,13 +394,14 @@ export const FULL_TABLE_RESOURCE_DICTIONARY: ResourceConfigurationDictionary = {
         sortable: true,
       },
       {
-        path: 'xp.SubmittedOrderStatus',
+        path: 'Status',
         header: 'ADMIN.HEADERS.STATUS',
         type: BASIC_STRING,
-        sortable: false,
+        sortable: true,
+        /*
         mappingFunction: (value: string): string => {
           return submittedOrderStatusPipe.transform(value)
-        },
+        },*/
       },
       {
         path: 'Comments',

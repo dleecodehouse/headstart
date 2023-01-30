@@ -384,7 +384,7 @@
             <p *ngIf="payment.Type === 'CreditCard'" class="font-italic">
               {{ setCardType(payment) }}
               {{ 'ADMIN.ORDERS.ENDING_IN' | translate }}
-              {{ payment.xp.partialAccountNumber }}
+              {{ payment.xp.CreditCard.PartialAccountNumber }}
             </p>
             <p *ngIf="payment.Type === 'SpendingAccount'" class="font-italic">
               {{ 'ADMIN.ORDERS.SPENDING_ACCOUNT' }}: {{ payment.Details.Name }}
@@ -405,7 +405,7 @@
             <p *ngIf="_payments[0].Type === 'CreditCard'" class="font-italic">
               {{ setCardType(_payments[0]) }}
               {{ 'ADMIN.ORDERS.ENDING_IN' | translate }}
-              {{ _payments[0].xp.partialAccountNumber }}
+              {{ _payments[0].xp.CreditCard.PartialAccountNumber }}
             </p>
             <p
               *ngIf="_payments[0].Type === 'SpendingAccount'"

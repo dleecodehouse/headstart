@@ -1,17 +1,16 @@
 {
   "hostedApp": true,
-  "marketplaceID": "my-seller-id",
-  "marketplaceName": "Default Admin",
-  "appname": "Default Admin",
-  "clientID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "middlewareUrl": "https://my-hosted-middleware.com",
-  "translateBlobUrl": "https://MYSTORAGEACCOUNTNAME.blob.core.windows.net/ngx-translate/i18n/",
+  "marketplaceID": "ea3bf3b9-abab-4aa0-9f7a-fd3628dac45a",
+  "marketplaceName": "Demo Marketplace",
+  "appname": "Headstart",
+  "clientID": "B660AD0A-08E8-4CAC-8D31-B84D1454BEFE",
+  "middlewareUrl1": "https://zipdemo2-middleware.sitecoredemo.com",
+  "middlewareUrl": "https://middleware-ocdemo.au-rtc.codehousegroup.com",
+  "translateBlobUrl": "/assets/translation/",
   "supportedLanguages": [
-    "en",
-    "fr",
-    "jp"
+    "en"
   ],
   "defaultLanguage": "en",
-  "blobStorageUrl": "https://MYSTORAGEACCOUNTNAME.blob.core.windows.net",
+  "blobStorageUrl": "https://four51.blob.core.windows.net",
   "orderCloudApiUrl": "https://sandboxapi.ordercloud.io"
 }

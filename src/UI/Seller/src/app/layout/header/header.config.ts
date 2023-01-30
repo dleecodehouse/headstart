@@ -51,6 +51,17 @@ const BuyerOrders: HSRoute = {
   queryParams: { OrderDirection: 'Incoming' },
 }
 
+const AbandonedOrders: HSRoute = {
+  rolesWithAccess: [
+    HSRoles.HSOrderAdmin,
+    HSRoles.HSOrderReader,
+    HSRoles.HSShipmentAdmin,
+  ],
+  title: 'ADMIN.NAV.ABANDONED_ORDERS',
+  route: '/orders',
+  queryParams: { OrderDirection: 'Incoming', 'Abandoned': 'true' },
+}
+
 const SupplierPurchaseOrders: HSRoute = {
   rolesWithAccess: [
     HSRoles.HSOrderAdmin,
@@ -111,8 +122,7 @@ const SellerOrderNavGrouping: HSRoute = {
   subRoutes: [
     BuyerOrders,
     SupplierPurchaseOrders,
-    QuoteOrders,
-    RequiringAttentionOrders,
+    //AbandonedOrders,
   ],
 }
 
@@ -215,6 +225,12 @@ const SupplierNavGrouping: HSRoute = {
   subRoutes: [AllSuppliers, SupplierUsers, SupplierLocations],
 }
 
+const PromotionUsageReports = {
+  rolesWithAccess: [HSRoles.HSReportReader],
+  title: 'ADMIN.NAV.PROMOTION_USAGE_REPORT',
+  route: 'promotions/promotionusage',  
+}
+
 const ProcessReports = {
   rolesWithAccess: [HSRoles.HSReportReader],
   title: 'ADMIN.NAV.PROCESS_REPORTS',
@@ -231,7 +247,7 @@ const ReportsNavGrouping = {
   rolesWithAccess: [HSRoles.HSReportAdmin, HSRoles.HSReportReader],
   title: 'ADMIN.NAV.REPORTS',
   route: '/reports',
-  subRoutes: [ProcessReports, ReportTemplates],
+  subRoutes: [PromotionUsageReports],
 }
 
 //Seller Admin
@@ -301,11 +317,11 @@ const AllNavGroupings: HSRoute[] = [
   SupplierNavGrouping,
   ReportsNavGrouping,
   SellerNavGrouping,
-  StorefrontNavGrouping,
+  //StorefrontNavGrouping,
   MySupplierProfile,
   MySupplierLocations,
   MySupplerUsers,
-  Support,
+  //Support,
 ]
 
 export const getHeaderConfig = (

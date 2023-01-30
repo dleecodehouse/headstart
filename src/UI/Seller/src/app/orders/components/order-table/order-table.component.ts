@@ -25,8 +25,9 @@ export class OrderTableComponent extends ResourceCrudComponent<Order> {
     private appAuthService: AppAuthService
   ) {
     super(changeDetectorRef, orderService, router, activatedroute, ngZone)
-    this.shouldShowOrderToggle =
-      this.appAuthService.getOrdercloudUserType() === SELLER
+
+    this.shouldShowOrderToggle = this.appAuthService.getOrdercloudUserType() === SELLER
+    
     activatedroute.queryParams.subscribe((params) => {
       if (this.router.url.startsWith('/orders')) {
         this.readFromUrlQueryParams(params)
@@ -36,9 +37,19 @@ export class OrderTableComponent extends ResourceCrudComponent<Order> {
       this.isListPage = !params.orderID
     })
   }
-  setOrderDirection(direction: 'Incoming' | 'Outgoing') {
+  setOrderDirection(direction: 'Incoming' | 'Outgoing', isAbandoned: false) {
     if (this.isListPage) {
       this.orderService.setOrderDirection(direction)
+      if (isAbandoned) {
+        this.router.navigate(['/orders'], {
+          queryParams: { OrderDirection: direction, 'Abandoned': true },
+        })        
+      }
+      else {
+        this.router.navigate(['/orders'], {
+          queryParams: { OrderDirection: direction },
+        })
+      }
     } else {
       this.router.navigate(['/orders'], {
         queryParams: { OrderDirection: direction },
@@ -50,6 +61,9 @@ export class OrderTableComponent extends ResourceCrudComponent<Order> {
     const { OrderDirection } = params
     this.isQuoteOrderList = params['xp.OrderType'] === 'Quote'
     this.activeOrderDirectionButton = OrderDirection
+    if (typeof(params['Abandoned']) !== 'undefined' && params['Abandoned'] === 'true') {
+      this.activeOrderDirectionButton = 'Abandoned'
+    }
     if (this.isQuoteOrderList) {
       this.filterConfig = {
         Filters: [
@@ -70,11 +84,11 @@ export class OrderTableComponent extends ResourceCrudComponent<Order> {
     Filters: [
       {
         Display: 'ADMIN.FILTERS.STATUS',
-        Path: 'xp.SubmittedOrderStatus',
+        Path: 'Status',
         Items: [
           { Text: 'ADMIN.FILTER_OPTIONS.OPEN', Value: 'Open' },
           { Text: 'ADMIN.FILTER_OPTIONS.COMPLETED', Value: 'Completed' },
-          { Text: 'ADMIN.FILTER_OPTIONS.CANCELED', Value: 'Canceled' },
+          { Text: 'ADMIN.FILTER_OPTIONS.CANCELED', Value: 'Canceled' }
         ],
         Type: 'Dropdown',
       },

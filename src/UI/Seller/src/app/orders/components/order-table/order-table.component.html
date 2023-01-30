@@ -42,6 +42,16 @@
     >
       ADMIN.NAV.PURCHASE_ORDERS
     </button>
+    <button
+      *ngIf="false"
+      type="button"
+      class="btn btn-outline-primary btn-sm"
+      [ngClass]="{ active: activeOrderDirectionButton === 'Abandoned' }"
+      (click)="setOrderDirection('Incoming', true)"
+      translate
+    >
+      ADMIN.NAV.ABANDONED_ORDERS
+    </button>
   </div>
   <app-order-details class="resource-edit" [order]="resourceInSelection">
   </app-order-details>
